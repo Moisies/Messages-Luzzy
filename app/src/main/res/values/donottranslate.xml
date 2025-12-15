@@ -1,0 +1,131 @@
+<resources>
+    <string name="package_name">com.goodwy.smsmessenger</string>
+    <string name="app_name">AlRight Messages</string>
+
+    <string name="mms_file_size_limit_100kb">100KB</string>
+    <string name="mms_file_size_limit_200kb">200KB</string>
+    <string name="mms_file_size_limit_300kb">300KB</string>
+    <string name="mms_file_size_limit_600kb">600KB</string>
+    <string name="mms_file_size_limit_1mb">1MB</string>
+    <string name="mms_file_size_limit_2mb">2MB</string>
+    <string name="sms">SMS</string>
+    <string name="mms">MMS</string>
+    <string name="message_details_sim">SIM</string>
+
+    <!-- Release notes -->
+    <string name="release_800">
+        Compatibility updates for Android 15 &amp; 16\n
+        Optimized loading messages in conversations\n
+        Changed the logic of styles\n
+        Changed colors of context action modes\n
+        Message time in the properties dialog now includes seconds\n
+        Improved detection of OTP codes\n
+        The ‘Move items into the Recycle Bin instead of deleting’ option is now enabled by default\n
+        The ‘Hide the top app bar when scrolling’ option is hidden because it does not work correctly on newer versions of Android\n
+        Fixed deletion of conversations from the Recycle Bin\n
+        Fixed display of unread notifications in conversations
+    </string>
+    <string name="release_701">
+        Group avatars have been fixed\n
+        Fixed bugs
+    </string>
+    <string name="release_700">
+        Changed color schemes and theme behavior\n
+        Added an auto dark/light theme\n
+        Added voice input for search\n
+        Added the ability to disable one of the swipes\n
+        Added date format YYYY.MM.DD\n
+        Persian calendar added\n
+        Added notification about MMS download error\n
+        Fixed bugs, improved stability
+    </string>
+    <string name="release_633">
+        Fixed a bug where conversations disappeared when the recycle bin was enabled
+    </string>
+    <string name="release_632">
+        Fixed notification sound\n
+        Fixed bugs, improved stability
+    </string>
+    <string name="release_631">
+        When a number is blocked, its messages are marked as read\n
+        You can disable one of the swipe gestures\n
+        Improved interaction with links in messages\n
+        Added option to show blocked numbers\n
+        Fixed bugs, improved stability
+    </string>
+    <string name="release_630">
+        Improved recognition of codes in messages\n
+        Fixed bugs, improved stability
+    </string>
+    <string name="release_620">
+        Changed behavior of the search bar\n
+        Added avatar display for companies\n
+        Fixed avatar display in some cases\n
+        Fixed ability to attach private contacts\n
+        Fixed bugs, improved stability
+    </string>
+    <string name="release_610">
+        Changed theme logic\n
+        Added ‘App icon color’ option\n
+        Added option to disable voice input\n
+        Added option ‘Turn on screen’ when notification is received\n
+        Added ‘Sound on out going messages’ option\n
+        Added number of unread messages\n
+        Fixed reflection of private contact name in notifications\n
+        Fixed bugs, improved stability
+    </string>
+    <string name="release_521">
+        Added ‘Change top bar colour when scrolling’ option\n
+        Added ability to delete messages in notification\n
+        Fixed bugs, improved stability
+    </string>
+    <string name="release_520">
+        Improved interaction with TalkBack\n
+        Added ‘Delete message after copying number from notification’ option\n
+        Added ‘Font size’ option for messages\n
+        Added ability to customize avatars size\n
+        Added the ability to delete drafts\n
+        Added the ability to send a contact as text\n
+        Changed the depth of swipes and haptic feedback behavior\n
+        Fixed bugs, improved stability
+    </string>
+    <string name="release_515">
+        Fix privacy policy
+    </string>
+    <string name="release_513">
+        Corrected the text of deletion confirmation dialog
+    </string>
+    <string name="release_511">
+        Added swipe gestures (call, message, block)\n
+        Now, when app password protection is enabled, you cannot access app settings without unlocking the app\n
+        New speech bubble styles have been added\n
+        Added "Show SIM card selection dialog when sending a message" setting\n
+        Added setting "Use contact colors" for message bubble\n
+        Fixed SIM card detection when replying in a notification\n
+        Bug fixes
+    </string>
+    <string name="release_510">
+        Added swipe gestures (mark as read, archive, delete)\n
+        Long-pressing the send button now launches voice dialing\n
+        Bug fixes
+    </string>
+    <string name="release_500">
+        Updated the interface\n
+        Bug fixes
+    </string>
+    <string name="release_421">
+        Added Unread Indicator Position setting\n
+        Changed grouping, group chats at the top\n
+        Added context menu when clicking on a message\n
+        Bug fixes
+    </string>
+    <string name="release_420">
+        !!! The format of backups has been changed. To restore backups made on previous versions install application version 4.1.0\n
+        Added blocking of messages by keywords\n
+        Added application password protection\n
+        Added the ability to hide the top ban when scrolling\n
+        Added support for RTL languages\n
+        Improved performance, bug fixes
+    </string>
+
+</resources>

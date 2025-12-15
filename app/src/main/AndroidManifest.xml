@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:installLocation="auto">
+
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_MMS" />
+    <uses-permission android:name="android.provider.Telephony.SMS_RECEIVED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission
+        android:name="android.permission.USE_BIOMETRIC"
+        tools:node="remove" />
+
+    <queries>
+        <package android:name="com.goodwy.audiobook.debug" />
+        <package android:name="com.goodwy.audiobook" />
+        <package android:name="com.goodwy.files.debug" />
+        <package android:name="com.goodwy.files" />
+        <package android:name="com.goodwy.dialer.debug" />
+        <package android:name="com.goodwy.dialer" />
+        <package android:name="com.goodwy.contacts.debug" />
+        <package android:name="com.goodwy.contacts" />
+        <package android:name="com.goodwy.smsmessenger.debug" />
+        <package android:name="com.goodwy.smsmessenger" />
+        <package android:name="com.goodwy.voicerecorder.debug" />
+        <package android:name="com.goodwy.voicerecorder" />
+        <package android:name="com.goodwy.voicerecorderfree.debug" />
+        <package android:name="com.goodwy.voicerecorderfree" />
+        <package android:name="com.goodwy.calendar" />
+        <package android:name="com.goodwy.calendar.debug" />
+        <package android:name="com.goodwy.keyboard" />
+        <package android:name="com.goodwy.keyboard.debug" />
+    </queries>
+
+    <uses-feature android:name="android.hardware.telephony" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:appCategory="productivity"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/messages"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="false"
+            android:theme="@style/SplashTheme" />
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:configChanges="orientation"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.RecycleBinConversationsActivity"
+            android:configChanges="orientation"
+            android:exported="true"
+            android:label="@string/recycle_bin"
+            android:parentActivityName=".activities.MainActivity" />
+
+        <activity
+            android:name=".activities.ArchivedConversationsActivity"
+            android:configChanges="orientation"
+            android:exported="true"
+            android:label="@string/archived_conversations"
+            android:parentActivityName=".activities.MainActivity" />
+
+        <activity
+            android:name=".activities.ThreadActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activities.MainActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".activities.NewConversationActivity"
+            android:configChanges="orientation"
+            android:exported="true"
+            android:parentActivityName=".activities.MainActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="sms" />
+                <data android:scheme="smsto" />
+                <data android:scheme="mms" />
+                <data android:scheme="mmsto" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="*/*" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+                <data android:mimeType="video/*" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:configChanges="orientation"
+            android:exported="true"
+            android:label="@string/settings"
+            android:parentActivityName=".activities.MainActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.goodwy.commons.activities.AboutActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/about"
+            android:parentActivityName=".activities.MainActivity" />
+
+        <activity
+            android:name="com.goodwy.commons.activities.CustomizationActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/customize_colors"
+            android:parentActivityName=".activities.SettingsActivity" />
+
+        <activity
+            android:name="com.goodwy.commons.activities.ManageBlockedNumbersActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/blocked_numbers"
+            android:parentActivityName=".activities.SettingsActivity"
+            tools:replace="android:label" />
+
+        <activity
+            android:name=".activities.ManageBlockedKeywordsActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/blocked_keywords"
+            android:parentActivityName=".activities.SettingsActivity" />
+
+        <activity
+            android:name=".activities.VCardViewerActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/contact_details"
+            android:parentActivityName=".activities.ThreadActivity" />
+
+        <activity
+            android:name=".activities.ConversationDetailsActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/conversation_details"
+            android:parentActivityName=".activities.ThreadActivity" />
+
+        <activity
+            android:name="com.goodwy.commons.activities.PurchaseActivity"
+            android:exported="false"
+            android:label=""
+            android:parentActivityName=".activities.MainActivity" />
+
+        <service
+            android:name=".services.HeadlessSmsSendService"
+            android:exported="true"
+            android:permission="android.permission.SEND_RESPOND_VIA_MESSAGE">
+            <intent-filter>
+                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="sms" />
+                <data android:scheme="smsto" />
+                <data android:scheme="mms" />
+                <data android:scheme="mmsto" />
+            </intent-filter>
+        </service>
+
+        <service android:name="com.android.mms.transaction.TransactionService" />
+
+        <receiver android:name=".receivers.SmsStatusSentReceiver" />
+
+        <receiver android:name=".receivers.SmsStatusDeliveredReceiver" />
+
+        <receiver
+            android:name=".receivers.SmsReceiver"
+            android:exported="true"
+            android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_DELIVER" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.android.mms.transaction.PushReceiver"
+            android:exported="true"
+            android:permission="android.permission.BROADCAST_WAP_PUSH">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.WAP_PUSH_DELIVER" />
+
+                <data android:mimeType="application/vnd.wap.mms-message" />
+                <data android:mimeType="application/vnd.wap.sic" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".receivers.MmsSentReceiver"
+            android:exported="true"
+            android:taskAffinity="com.klinker.android.messaging.MMS_SENT" />
+
+        <receiver
+            android:name=".receivers.MmsReceiver"
+            android:exported="true"
+            android:taskAffinity="com.klinker.android.messaging.MMS_RECEIVED" />
+
+        <receiver
+            android:name=".receivers.MarkAsReadReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.goodwy.smsmessenger.action.mark_as_read" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".receivers.DirectReplyReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.goodwy.smsmessenger.action.reply" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".receivers.DeleteSmsReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.goodwy.smsmessenger.action.delete" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".receivers.ScheduledMessageReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".receivers.CopyNumberReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.goodwy.smsmessenger.action.copy_number" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity-alias
+            android:name=".activities.SplashActivity.Original"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:roundIcon="@mipmap/ic_launcher"
+            android:targetActivity=".activities.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".activities.SplashActivity.One"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_one"
+            android:roundIcon="@mipmap/ic_launcher_one"
+            android:targetActivity=".activities.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".activities.SplashActivity.Two"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_two"
+            android:roundIcon="@mipmap/ic_launcher_two"
+            android:targetActivity=".activities.SplashActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".activities.SplashActivity.Three"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_three"
+            android:roundIcon="@mipmap/ic_launcher_three"
+            android:targetActivity=".activities.SplashActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".activities.SplashActivity.Four"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_four"
+            android:roundIcon="@mipmap/ic_launcher_four"
+            android:targetActivity=".activities.SplashActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".activities.SplashActivity.Five"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_five"
+            android:roundIcon="@mipmap/ic_launcher_five"
+            android:targetActivity=".activities.SplashActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".activities.SplashActivity.Six"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_six"
+            android:roundIcon="@mipmap/ic_launcher_six"
+            android:targetActivity=".activities.SplashActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".activities.SplashActivity.Seven"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_seven"
+            android:roundIcon="@mipmap/ic_launcher_seven"
+            android:targetActivity=".activities.SplashActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".activities.SplashActivity.Eight"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_eight"
+            android:roundIcon="@mipmap/ic_launcher_eight"
+            android:targetActivity=".activities.SplashActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".activities.SplashActivity.Nine"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_nine"
+            android:roundIcon="@mipmap/ic_launcher_nine"
+            android:targetActivity=".activities.SplashActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".activities.SplashActivity.Ten"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_ten"
+            android:roundIcon="@mipmap/ic_launcher_ten"
+            android:targetActivity=".activities.SplashActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".activities.SplashActivity.Eleven"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_eleven"
+            android:roundIcon="@mipmap/ic_launcher_eleven"
+            android:targetActivity=".activities.SplashActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Firebase Messaging Service -->
+        <service
+            android:name=".fcm.FCMService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- Canal de notificaciones por defecto -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+    </application>
+</manifest>
