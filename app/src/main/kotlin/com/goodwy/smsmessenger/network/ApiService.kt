@@ -3,45 +3,41 @@ package com.goodwy.smsmessenger.network
 import com.goodwy.smsmessenger.network.models.ApiResponse
 import com.goodwy.smsmessenger.network.models.DeviceData
 import com.goodwy.smsmessenger.network.models.DeviceRegistrationRequest
+import com.goodwy.smsmessenger.network.models.PurchaseData
+import com.goodwy.smsmessenger.network.models.PurchaseRegistrationRequest
+import com.goodwy.smsmessenger.network.models.PurchaseStatusResponse
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
-/**
- * Interface que define los endpoints de la API
- */
 interface ApiService {
 
-    /**
-     * Registra o actualiza un dispositivo con su token FCM
-     * POST https://luzzy.app/api/dispositivo/registro
-     */
     @POST("dispositivo/registro")
     suspend fun registerDevice(
         @Body request: DeviceRegistrationRequest
     ): Response<ApiResponse<DeviceData>>
 
-    /**
-     * Desactiva un dispositivo (al cerrar sesión o desinstalar)
-     * POST https://luzzy.app/api/dispositivo/desactivar
-     */
     @POST("dispositivo/desactivar")
     suspend fun deactivateDevice(
         @Body request: Map<String, String>
     ): Response<ApiResponse<Unit>>
 
-    // Aquí puedes agregar más endpoints según necesites
-    // Por ejemplo:
+    @POST("compra/registrar")
+    suspend fun registerPurchase(
+        @Header("Authorization") token: String,
+        @Body request: PurchaseRegistrationRequest
+    ): Response<ApiResponse<PurchaseData>>
 
-    /**
-     * Obtener mensajes del servidor
-     */
-    // @GET("messages")
-    // suspend fun getMessages(): Response<ApiResponse<List<Message>>>
+    @GET("compra/verificar")
+    suspend fun verifyPremiumStatus(
+        @Header("Authorization") token: String
+    ): Response<ApiResponse<PurchaseStatusResponse>>
 
-    /**
-     * Enviar un mensaje
-     */
-    // @POST("messages/send")
-    // suspend fun sendMessage(@Body message: SendMessageRequest): Response<ApiResponse<Message>>
+    @POST("compra/invalidar")
+    suspend fun invalidatePurchase(
+        @Header("Authorization") token: String,
+        @Body request: Map<String, String>
+    ): Response<ApiResponse<PurchaseData>>
 }

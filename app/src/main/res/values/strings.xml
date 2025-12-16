@@ -140,6 +140,19 @@
     <string name="faq_4_title">Why do my group message replies appear as individual texts to recipients?</string>
     <string name="faq_4_text">You need to enable \"Send group messages as MMS\" in the app settings. This will ensure that group messages are sent as proper MMS, allowing all participants to see each other\'s replies.</string>
 
-    <!-- Firebase notifications -->
     <string name="default_notification_channel_id">luzzy_notifications</string>
+
+    <string name="premium_title">Versión Premium</string>
+    <string name="premium_benefits_title">Beneficios Premium</string>
+    <string name="premium_benefit_1">Sin anuncios para siempre</string>
+    <string name="premium_benefit_2">Temas y personalización avanzada</string>
+    <string name="premium_benefit_3">Funciones exclusivas premium</string>
+    <string name="premium_benefit_4">Apoyo al desarrollo de la app</string>
+    <string name="upgrade_to_premium">Actualizar a Premium</string>
+    <string name="restore_purchases">Restaurar compras</string>
+    <string name="premium_status_active">Estado: Premium Activo ✓</string>
+    <string name="premium_status_inactive">Estado: Versión Gratuita</string>
+    <string name="already_premium">Ya tienes Premium</string>
+    <string name="premium_note">Pago único · Sin suscripciones · Funciona en todos tus dispositivos</string>
+    <string name="checking_purchases">Verificando compras…</string>
 </resources>

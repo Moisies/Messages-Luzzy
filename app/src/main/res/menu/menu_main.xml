@@ -18,6 +18,10 @@
         android:title="@string/show_blocked_numbers"
         app:showAsAction="never" />
     <item
+        android:id="@+id/premium"
+        android:title="@string/premium_title"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/settings"
         android:icon="@drawable/ic_more_horiz"
         android:title="@string/settings"

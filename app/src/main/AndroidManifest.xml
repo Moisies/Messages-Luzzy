@@ -65,6 +65,13 @@
             android:exported="true" />
 
         <activity
+            android:name=".activities.PremiumActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/premium_title"
+            android:parentActivityName=".activities.MainActivity" />
+
+        <activity
             android:name=".activities.RecycleBinConversationsActivity"
             android:configChanges="orientation"
             android:exported="true"

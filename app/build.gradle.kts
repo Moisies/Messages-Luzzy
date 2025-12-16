@@ -81,7 +81,6 @@ android {
 
     buildTypes {
         debug {
-            applicationIdSuffix = ".debug"
         }
         release {
             isMinifyEnabled = true
@@ -178,16 +177,14 @@ dependencies {
     implementation(libs.swipe.action)
     implementation(libs.google.services)
 
-    // Firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation("com.google.firebase:firebase-messaging-ktx")
     implementation("com.google.firebase:firebase-analytics-ktx")
-
-    // WorkManager para reintentos
     implementation("androidx.work:work-runtime-ktx:2.9.0")
-
-    // Retrofit para llamadas API
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    "gplayImplementation"("com.android.billingclient:billing-ktx:6.1.0")
+    implementation("androidx.security:security-crypto:1.1.0-alpha06")
 }
