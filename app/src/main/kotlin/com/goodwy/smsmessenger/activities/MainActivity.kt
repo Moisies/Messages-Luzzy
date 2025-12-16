@@ -195,6 +195,7 @@ class MainActivity : SimpleActivity() {
                     R.id.show_archived -> launchArchivedConversations()
                     R.id.show_blocked_numbers -> showBlockedNumbers()
                     R.id.premium -> launchPremium()
+                    R.id.user_settings -> launchUserSettings()
                     R.id.settings -> launchSettings()
                     R.id.about -> launchAbout()
                     else -> return@setOnMenuItemClickListener false
@@ -695,6 +696,11 @@ class MainActivity : SimpleActivity() {
     private fun launchPremium() {
         hideKeyboard()
         startActivity(Intent(applicationContext, PremiumActivity::class.java))
+    }
+
+    private fun launchUserSettings() {
+        hideKeyboard()
+        startActivity(Intent(applicationContext, UserSettingsActivity::class.java))
     }
 
     private fun launchSettings() {

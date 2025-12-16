@@ -2,6 +2,8 @@ package com.goodwy.smsmessenger.network
 
 import com.goodwy.smsmessenger.network.models.ApiResponse
 import com.goodwy.smsmessenger.network.models.AuthResponse
+import com.goodwy.smsmessenger.network.models.ConfiguracionResponse
+import com.goodwy.smsmessenger.network.models.ConfiguracionUpdateRequest
 import com.goodwy.smsmessenger.network.models.DeviceData
 import com.goodwy.smsmessenger.network.models.DeviceRegistrationRequest
 import com.goodwy.smsmessenger.network.models.LoginRequest
@@ -64,4 +66,15 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Body request: Map<String, String>
     ): Response<ApiResponse<PurchaseData>>
+
+    @GET("configuracion")
+    suspend fun getConfiguracion(
+        @Header("Authorization") token: String
+    ): Response<ApiResponse<ConfiguracionResponse>>
+
+    @POST("configuracion")
+    suspend fun updateConfiguracion(
+        @Header("Authorization") token: String,
+        @Body request: ConfiguracionUpdateRequest
+    ): Response<ApiResponse<ConfiguracionResponse>>
 }

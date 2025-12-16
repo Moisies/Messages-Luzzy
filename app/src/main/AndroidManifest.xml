@@ -86,6 +86,13 @@
             android:parentActivityName=".activities.LoginActivity" />
 
         <activity
+            android:name=".activities.UserSettingsActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/user_settings_title"
+            android:parentActivityName=".activities.MainActivity" />
+
+        <activity
             android:name=".activities.RecycleBinConversationsActivity"
             android:configChanges="orientation"
             android:exported="true"

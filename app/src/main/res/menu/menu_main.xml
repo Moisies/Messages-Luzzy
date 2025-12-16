@@ -22,6 +22,10 @@
         android:title="@string/premium_title"
         app:showAsAction="never" />
     <item
+        android:id="@+id/user_settings"
+        android:title="@string/user_settings_title"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/settings"
         android:icon="@drawable/ic_more_horiz"
         android:title="@string/settings"

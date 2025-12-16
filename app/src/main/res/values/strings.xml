@@ -190,4 +190,28 @@
     <string name="account">Cuenta</string>
     <string name="logout">Cerrar Sesión</string>
     <string name="logged_in_as">Sesión iniciada como: %s</string>
+
+    <string name="user_settings_title">Configuración</string>
+    <string name="general_settings">Configuración General</string>
+    <string name="premium_settings">Configuración Premium</string>
+    <string name="unlock_premium_features">Desbloquea funciones premium</string>
+    <string name="premium_features_description">Accede a auto-respuesta, firma de SMS y más funciones exclusivas</string>
+
+    <string name="nombre_usuario">Nombre de Usuario</string>
+    <string name="tema_color">Color de Tema</string>
+    <string name="mensaje_automatico">Mensaje Automático</string>
+    <string name="firma_sms">Firma de SMS</string>
+
+    <string name="auto_respuesta_activada">Auto-Respuesta</string>
+    <string name="auto_respuesta_desc">Responder automáticamente a mensajes entrantes</string>
+    <string name="notificaciones_silenciosas">Notificaciones Silenciosas</string>
+    <string name="notificaciones_silenciosas_desc">Desactivar sonidos de notificación</string>
+    <string name="modo_oscuro">Modo Oscuro</string>
+    <string name="modo_oscuro_desc">Usar tema oscuro en toda la aplicación</string>
+
+    <string name="save_settings">Guardar Configuración</string>
+    <string name="settings_saved">Configuración guardada exitosamente</string>
+    <string name="error_loading_settings">Error al cargar la configuración</string>
+    <string name="error_saving_settings">Error al guardar la configuración</string>
+    <string name="login_required">Debes iniciar sesión para acceder a esta función</string>
 </resources>
