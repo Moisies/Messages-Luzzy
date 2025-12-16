@@ -72,6 +72,20 @@
             android:parentActivityName=".activities.MainActivity" />
 
         <activity
+            android:name=".activities.LoginActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/login_title"
+            android:parentActivityName=".activities.MainActivity" />
+
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/register_title"
+            android:parentActivityName=".activities.LoginActivity" />
+
+        <activity
             android:name=".activities.RecycleBinConversationsActivity"
             android:configChanges="orientation"
             android:exported="true"

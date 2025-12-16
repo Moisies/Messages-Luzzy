@@ -44,6 +44,7 @@ import com.goodwy.smsmessenger.extensions.deleteSmsDraft
 import com.goodwy.smsmessenger.extensions.getAllDrafts
 import com.goodwy.smsmessenger.helpers.*
 import com.goodwy.smsmessenger.models.Conversation
+import com.goodwy.smsmessenger.models.SendMode
 import me.thanel.swipeactionview.SwipeActionView
 import me.thanel.swipeactionview.SwipeDirection
 import me.thanel.swipeactionview.SwipeGestureListener
@@ -74,6 +75,7 @@ abstract class BaseConversationsAdapter(
     private var fontSize = activity.getTextSize()
     private var drafts = HashMap<Long, String>()
     private var showContactThumbnails = activity.config.showContactThumbnails
+    private val sendModeRepository by lazy { ContactSendModeRepository(activity) }
 
     private var recyclerViewState: Parcelable? = null
 
@@ -292,6 +294,12 @@ abstract class BaseConversationsAdapter(
                         placeholderImage = placeholder
                     )
                 }
+            }
+
+            val sendMode = sendModeRepository.getSendMode(conversation.threadId)
+            sendModeIndicator.apply {
+                beVisibleIf(sendMode == SendMode.DRAFT)
+                applyColorFilter(textColor)
             }
 
             //swipe

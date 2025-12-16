@@ -45,6 +45,11 @@
     <string name="schedule_send_warning">Keep the phone on and make sure there is nothing killing the app while in background.</string>
     <string name="update_message">Update message</string>
     <string name="send_now">Send now</string>
+    <string name="toggle_send_mode">Modo de envío</string>
+    <string name="switch_to_send_mode">Cambiar a modo envío</string>
+    <string name="switch_to_draft_mode">Cambiar a modo borrador</string>
+    <string name="send_mode_enabled">Modo envío activado: Los mensajes se enviarán automáticamente</string>
+    <string name="draft_mode_enabled">Modo borrador activado: Los mensajes se guardarán como borrador</string>
     <!-- Message details -->
     <string name="message_details">Message details</string>
     <string name="message_details_sender">Sender</string>
@@ -155,4 +160,34 @@
     <string name="already_premium">Ya tienes Premium</string>
     <string name="premium_note">Pago único · Sin suscripciones · Funciona en todos tus dispositivos</string>
     <string name="checking_purchases">Verificando compras…</string>
+
+    <string name="login_title">Iniciar Sesión</string>
+    <string name="login_welcome">Bienvenido de nuevo</string>
+    <string name="login_subtitle">Inicia sesión para sincronizar tu cuenta premium en todos tus dispositivos</string>
+    <string name="login_button">Iniciar Sesión</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="no_account">¿No tienes cuenta?</string>
+    <string name="register_button">Registrarse</string>
+    <string name="continue_without_account">Continuar sin cuenta</string>
+
+    <string name="register_title">Crear Cuenta</string>
+    <string name="register_welcome">Crea tu cuenta</string>
+    <string name="register_subtitle">Regístrate para sincronizar tu cuenta premium en todos tus dispositivos</string>
+    <string name="name">Nombre</string>
+    <string name="confirm_password">Confirmar Contraseña</string>
+    <string name="have_account">¿Ya tienes cuenta?</string>
+
+    <string name="login_success">Sesión iniciada correctamente</string>
+    <string name="register_success">Cuenta creada exitosamente</string>
+    <string name="logout_success">Sesión cerrada</string>
+    <string name="error_empty_fields">Por favor completa todos los campos</string>
+    <string name="error_invalid_email">Correo electrónico inválido</string>
+    <string name="error_password_mismatch">Las contraseñas no coinciden</string>
+    <string name="error_password_short">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="error_login_failed">Error al iniciar sesión. Verifica tus credenciales.</string>
+    <string name="error_register_failed">Error al crear la cuenta. El correo puede estar en uso.</string>
+    <string name="account">Cuenta</string>
+    <string name="logout">Cerrar Sesión</string>
+    <string name="logged_in_as">Sesión iniciada como: %s</string>
 </resources>

@@ -70,6 +70,7 @@ import com.goodwy.smsmessenger.extensions.*
 import com.goodwy.smsmessenger.helpers.*
 import com.goodwy.smsmessenger.messaging.*
 import com.goodwy.smsmessenger.models.*
+import com.goodwy.smsmessenger.models.SendMode
 import com.goodwy.smsmessenger.models.ThreadItem.ThreadDateTime
 import com.goodwy.smsmessenger.models.ThreadItem.ThreadError
 import com.goodwy.smsmessenger.models.ThreadItem.ThreadSending
@@ -114,6 +115,7 @@ class ThreadActivity : SimpleActivity() {
     private var isSpeechToTextAvailable = false
 
     private val binding by viewBinding(ActivityThreadBinding::inflate)
+    private val sendModeRepository by lazy { ContactSendModeRepository(this) }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
@@ -276,6 +278,11 @@ class ThreadActivity : SimpleActivity() {
             val unblockText = if (participants.size == 1) com.goodwy.strings.R.string.unblock_number else com.goodwy.strings.R.string.unblock_numbers
             val blockText = if (participants.size == 1) com.goodwy.commons.R.string.block_number else com.goodwy.commons.R.string.block_numbers
             findItem(R.id.block_number).title = if (isBlockNumbers()) getString(unblockText) else getString(blockText)
+
+            findItem(R.id.toggle_send_mode).isVisible = !isRecycleBin
+            val currentSendMode = sendModeRepository.getSendMode(threadId)
+            val sendModeText = if (currentSendMode == SendMode.SEND) R.string.switch_to_draft_mode else R.string.switch_to_send_mode
+            findItem(R.id.toggle_send_mode).title = getString(sendModeText)
         }
     }
 
@@ -297,6 +304,7 @@ class ThreadActivity : SimpleActivity() {
                 R.id.dial_number -> dialNumber()
                 R.id.manage_people -> managePeople()
                 R.id.mark_as_unread -> markAsUnread()
+                R.id.toggle_send_mode -> toggleSendMode()
                 else -> return@setOnMenuItemClickListener false
             }
             return@setOnMenuItemClickListener true
@@ -1253,6 +1261,14 @@ class ThreadActivity : SimpleActivity() {
         }
     }
 
+    private fun toggleSendMode() {
+        val newMode = sendModeRepository.toggleSendMode(threadId)
+        val messageRes = if (newMode == SendMode.SEND) R.string.send_mode_enabled else R.string.draft_mode_enabled
+        toast(messageRes)
+        refreshMenuItems()
+        bus?.post(Events.RefreshConversations())
+    }
+
     private fun addNumberToContact() {
         val phoneNumber =
             participants.firstOrNull()?.phoneNumbers?.firstOrNull()?.normalizedNumber ?: return
@@ -1603,6 +1619,18 @@ class ThreadActivity : SimpleActivity() {
             showErrorToast(getString(com.goodwy.commons.R.string.unknown_error_occurred))
             return
         }
+
+        val currentSendMode = sendModeRepository.getSendMode(threadId)
+        if (currentSendMode == SendMode.DRAFT) {
+            ensureBackgroundThread {
+                saveSmsDraft(text, threadId)
+                runOnUiThread {
+                    toast(R.string.draft_mode_enabled)
+                }
+            }
+            return
+        }
+
         scrollToBottom()
 
         text = removeDiacriticsIfNeeded(text)

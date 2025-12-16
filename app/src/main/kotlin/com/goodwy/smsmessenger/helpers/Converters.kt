@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken
 import com.goodwy.commons.models.SimpleContact
 import com.goodwy.smsmessenger.models.Attachment
 import com.goodwy.smsmessenger.models.MessageAttachment
+import com.goodwy.smsmessenger.models.SendMode
 
 class Converters {
     private val gson = Gson()
@@ -37,5 +38,15 @@ class Converters {
     @TypeConverter
     fun messageAttachmentToJson(messageAttachment: MessageAttachment?): String? {
         return gson.toJson(messageAttachment)
+    }
+
+    @TypeConverter
+    fun sendModeToString(sendMode: SendMode): String {
+        return sendMode.name
+    }
+
+    @TypeConverter
+    fun stringToSendMode(value: String): SendMode {
+        return SendMode.valueOf(value)
     }
 }

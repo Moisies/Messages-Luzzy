@@ -190,6 +190,21 @@
                 tools:text="8"
                 tools:ignore="SpUsage" />
 
+            <ImageView
+                android:id="@+id/sendModeIndicator"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:gravity="center_vertical"
+                android:alpha="0.6"
+                android:src="@drawable/ic_paper_plane_vector"
+                android:contentDescription="@null"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="@+id/conversationAddress"
+                app:layout_constraintBottom_toBottomOf="@+id/conversationAddress"
+                app:layout_constraintEnd_toStartOf="@+id/conversationDate"
+                app:layout_goneMarginEnd="@dimen/small_margin"
+                tools:visibility="visible" />
+
             <TextView
                 android:id="@+id/conversationDate"
                 android:layout_width="wrap_content"
