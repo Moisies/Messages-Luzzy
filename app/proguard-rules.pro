@@ -34,6 +34,51 @@
 -keep class com.goodwy.smsmessenger.models.Attachment { *; }
 -keep class com.goodwy.smsmessenger.models.MessageAttachment { *; }
 
+# Retrofit
+-dontwarn retrofit2.**
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-keep class retrofit2.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+-keepattributes *Annotation*
+-keepattributes RuntimeVisibleAnnotations
+-keepattributes RuntimeInvisibleAnnotations
+-keepattributes RuntimeVisibleParameterAnnotations
+-keepattributes RuntimeInvisibleParameterAnnotations
+-keepattributes EnclosingMethod
+-keepattributes InnerClasses
+
+# Keep API models (for Retrofit)
+-keep class app.luzzy.network.models.** { *; }
+-keep class app.luzzy.network.** { *; }
+
+# Keep generic signatures for Retrofit
+-keepattributes Signature
+-keep,allowobfuscation,allowshrinking interface retrofit2.Call
+-keep,allowobfuscation,allowshrinking class retrofit2.Response
+-keep,allowobfuscation,allowshrinking class kotlin.coroutines.Continuation
+
+# Keep Retrofit annotations
+-keepclasseswithmembers class * {
+    @retrofit2.http.* <methods>;
+}
+
+# Keep API service interface methods
+-keepclassmembers,allowobfuscation interface * {
+    @retrofit2.http.* <methods>;
+}
+
+# Keep the ApiService interface completely
+-keep interface app.luzzy.network.ApiService { *; }
+-keep class * implements app.luzzy.network.ApiService { *; }
+
+# OkHttp
+-dontwarn okhttp3.internal.platform.**
+-dontwarn org.conscrypt.**
+-dontwarn org.bouncycastle.**
+-dontwarn org.openjsse.**
+
 #Goodwy
 -dontwarn org.bouncycastle.jsse.BCSSLParameters
 -dontwarn org.bouncycastle.jsse.BCSSLSocket

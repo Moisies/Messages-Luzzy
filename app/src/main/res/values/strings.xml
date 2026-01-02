@@ -111,7 +111,7 @@
     <string name="group_message_mms">Send group messages as MMS</string>
     <string name="send_long_message_mms">Send long messages as MMS</string>
     <!-- Export / Import -->
-    <string name="messages">Messages</string>
+    <string name="messages">Luzzy Mensajería</string>
     <string name="keywords">Keywords</string>
     <string name="export_messages">Export messages</string>
     <string name="export_sms">Export SMS</string>
@@ -188,7 +188,6 @@
     <string name="error_login_failed">Error al iniciar sesión. Verifica tus credenciales.</string>
     <string name="error_register_failed">Error al crear la cuenta. El correo puede estar en uso.</string>
     <string name="account">Cuenta</string>
-    <string name="logout">Cerrar Sesión</string>
     <string name="logged_in_as">Sesión iniciada como: %s</string>
 
     <string name="user_settings_title">Configuración</string>
@@ -214,4 +213,49 @@
     <string name="error_loading_settings">Error al cargar la configuración</string>
     <string name="error_saving_settings">Error al guardar la configuración</string>
     <string name="login_required">Debes iniciar sesión para acceder a esta función</string>
+
+    <!-- Google Login -->
+    <string name="google_login_title">Sign in with Google</string>
+    <string name="google_login_description">Sign in with your Google account to sync your settings across all your devices</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="skip_for_now">Skip for now</string>
+    <string name="google_login_failed">Error signing in with Google</string>
+    <string name="google_login_success">Successfully signed in</string>
+    <string name="google_login_server_error">Error connecting to server</string>
+    <string name="logged_in_with_google">Signed in as %1$s</string>
+    <string name="login_with_google">Sign in with Google</string>
+
+    <!-- Google Logout -->
+    <string name="logout_google">Sign out of Google</string>
+    <string name="google_logout_success">Successfully signed out</string>
+    <string name="logout_confirmation_title">Sign out?</string>
+    <string name="logout_confirmation_message">Your Google session will be closed and synced settings will be deleted. Your SMS messages will remain intact.</string>
+    <string name="logout_confirmation_message_detail">This will delete:\n• Google session\n• Server settings\n• Authentication token\n\nWill keep:\n• SMS history\n• Local settings\n• Contact send/draft mode</string>
+    <string name="logout">Sign out</string>
+    <string name="logout_failed">Error signing out</string>
+
+    <!-- Google Client ID (Web) -->
+    <string name="google_client_id">235924562275-4gena1ig30noe06e4ednlcpv86a3cqh1.apps.googleusercontent.com</string>
+
+    <!-- SMS Upload -->
+    <string name="sms_upload_failed_title">Failed to send SMS to server</string>
+    <string name="sms_upload_failed_body">Touch to retry</string>
+    <string name="sms_upload_channel_name">SMS Server Sync</string>
+    <string name="sms_upload_channel_description">Notifications when SMS upload to server fails</string>
+
+    <!-- Draft Messages -->
+    <string name="draft_message_ready_title">Draft message for %1$s</string>
+    <string name="draft_message_channel_name">Draft Messages</string>
+    <string name="draft_message_channel_description">Notifications for messages saved as draft</string>
+
+    <!-- Video Player -->
+    <string name="play_pause">Play/Pause</string>
+    <string name="picture_in_picture">Picture in Picture</string>
+    <string name="video_player_error">Error playing video</string>
+
+    <!-- Auto Response Mode -->
+    <string name="auto_response">Auto Response</string>
+    <string name="draft_mode">Draft mode</string>
+    <string name="draft_mode_description">Auto responses will be saved as draft and you will receive a notification to send them manually</string>
+    <string name="send_mode_description">Auto responses will be sent directly without confirmation</string>
 </resources>

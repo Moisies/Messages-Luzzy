@@ -64,7 +64,6 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/name"
                         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                        app:startIconDrawable="@drawable/ic_person_vector"
                         android:layout_marginBottom="@dimen/medium_margin">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -81,7 +80,6 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/email"
                         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                        app:startIconDrawable="@drawable/ic_email_vector"
                         android:layout_marginBottom="@dimen/medium_margin">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -98,7 +96,6 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/password"
                         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                        app:startIconDrawable="@drawable/ic_lock_vector"
                         app:endIconMode="password_toggle"
                         android:layout_marginBottom="@dimen/medium_margin">
 
@@ -116,7 +113,6 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/confirm_password"
                         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                        app:startIconDrawable="@drawable/ic_lock_vector"
                         app:endIconMode="password_toggle"
                         android:layout_marginBottom="@dimen/big_margin">
 

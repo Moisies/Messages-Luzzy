@@ -127,7 +127,7 @@ android {
         )
     }
 
-    namespace = project.property("APP_ID").toString()
+    namespace = "app.luzzy"
 
     lint {
         checkReleaseBuilds = false
@@ -180,6 +180,7 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation("com.google.firebase:firebase-messaging-ktx")
     implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.android.gms:play-services-auth:21.0.0")
     implementation("androidx.work:work-runtime-ktx:2.9.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")

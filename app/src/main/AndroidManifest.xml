@@ -72,25 +72,26 @@
             android:parentActivityName=".activities.MainActivity" />
 
         <activity
-            android:name=".activities.LoginActivity"
-            android:configChanges="orientation"
-            android:exported="false"
-            android:label="@string/login_title"
-            android:parentActivityName=".activities.MainActivity" />
-
-        <activity
-            android:name=".activities.RegisterActivity"
-            android:configChanges="orientation"
-            android:exported="false"
-            android:label="@string/register_title"
-            android:parentActivityName=".activities.LoginActivity" />
-
-        <activity
             android:name=".activities.UserSettingsActivity"
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/user_settings_title"
             android:parentActivityName=".activities.MainActivity" />
+
+        <activity
+            android:name=".activities.GoogleLoginActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/google_login_title"
+            android:parentActivityName=".activities.MainActivity" />
+
+        <activity
+            android:name=".activities.VideoPlayerActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:exported="false"
+            android:supportsPictureInPicture="true"
+            android:parentActivityName=".activities.ThreadActivity"
+            android:theme="@style/AppTheme.FullScreen" />
 
         <activity
             android:name=".activities.RecycleBinConversationsActivity"
@@ -268,7 +269,7 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.goodwy.smsmessenger.action.mark_as_read" />
+                <action android:name="app.luzzy.action.mark_as_read" />
             </intent-filter>
         </receiver>
 
@@ -277,7 +278,7 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.goodwy.smsmessenger.action.reply" />
+                <action android:name="app.luzzy.action.reply" />
             </intent-filter>
         </receiver>
 
@@ -286,7 +287,7 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.goodwy.smsmessenger.action.delete" />
+                <action android:name="app.luzzy.action.delete" />
             </intent-filter>
         </receiver>
 
@@ -299,7 +300,16 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.goodwy.smsmessenger.action.copy_number" />
+                <action android:name="app.luzzy.action.copy_number" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".sms.SmsReceiver"
+            android:exported="true"
+            android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter android:priority="999">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
 

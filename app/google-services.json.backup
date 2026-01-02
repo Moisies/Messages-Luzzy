@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "235924562275",
+    "project_id": "luzzy-7509d",
+    "storage_bucket": "luzzy-7509d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235924562275:android:ba3f29ee7a9d81c9637356",
+        "android_client_info": {
+          "package_name": "app.luzzy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCMVJXQqespoz2sUgX5uuyH74L2yl2t04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235924562275:android:12e5d024ba341e65637356",
+        "android_client_info": {
+          "package_name": "com.goodwy.smsmessenger"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCMVJXQqespoz2sUgX5uuyH74L2yl2t04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

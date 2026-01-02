@@ -1,0 +1,86 @@
+Starting a Gradle Daemon, 3 busy and 2 incompatible Daemons could not be reused, use --status for details
+
+> Configure project :app
+Warning: No signing config found. Build will be unsigned.
+
+> Task :app:signingReport
+Variant: gplayDebug
+Config: debug
+Store: C:\Users\05cur\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 6A:52:89:D5:0C:85:21:E9:4C:27:50:1A:EB:9E:FE:FD
+SHA1: A5:63:B8:7C:45:B0:9B:E6:3A:EC:FC:C0:D3:44:60:94:44:F0:6C:50
+SHA-256: 97:96:91:4A:1A:DF:DB:40:5C:F8:0B:E3:CB:51:2D:D9:0D:14:54:A2:DC:59:1F:4D:1B:53:31:C6:D2:81:48:BE
+Valid until: sábado, 3 de julio de 2055
+----------
+Variant: fossDebug
+Config: debug
+Store: C:\Users\05cur\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 6A:52:89:D5:0C:85:21:E9:4C:27:50:1A:EB:9E:FE:FD
+SHA1: A5:63:B8:7C:45:B0:9B:E6:3A:EC:FC:C0:D3:44:60:94:44:F0:6C:50
+SHA-256: 97:96:91:4A:1A:DF:DB:40:5C:F8:0B:E3:CB:51:2D:D9:0D:14:54:A2:DC:59:1F:4D:1B:53:31:C6:D2:81:48:BE
+Valid until: sábado, 3 de julio de 2055
+----------
+Variant: rustoreDebug
+Config: debug
+Store: C:\Users\05cur\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 6A:52:89:D5:0C:85:21:E9:4C:27:50:1A:EB:9E:FE:FD
+SHA1: A5:63:B8:7C:45:B0:9B:E6:3A:EC:FC:C0:D3:44:60:94:44:F0:6C:50
+SHA-256: 97:96:91:4A:1A:DF:DB:40:5C:F8:0B:E3:CB:51:2D:D9:0D:14:54:A2:DC:59:1F:4D:1B:53:31:C6:D2:81:48:BE
+Valid until: sábado, 3 de julio de 2055
+----------
+Variant: gplayRelease
+Config: null
+Store: null
+Alias: null
+----------
+Variant: fossRelease
+Config: null
+Store: null
+Alias: null
+----------
+Variant: rustoreRelease
+Config: null
+Store: null
+Alias: null
+----------
+Variant: gplayDebugAndroidTest
+Config: debug
+Store: C:\Users\05cur\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 6A:52:89:D5:0C:85:21:E9:4C:27:50:1A:EB:9E:FE:FD
+SHA1: A5:63:B8:7C:45:B0:9B:E6:3A:EC:FC:C0:D3:44:60:94:44:F0:6C:50
+SHA-256: 97:96:91:4A:1A:DF:DB:40:5C:F8:0B:E3:CB:51:2D:D9:0D:14:54:A2:DC:59:1F:4D:1B:53:31:C6:D2:81:48:BE
+Valid until: sábado, 3 de julio de 2055
+----------
+Variant: fossDebugAndroidTest
+Config: debug
+Store: C:\Users\05cur\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 6A:52:89:D5:0C:85:21:E9:4C:27:50:1A:EB:9E:FE:FD
+SHA1: A5:63:B8:7C:45:B0:9B:E6:3A:EC:FC:C0:D3:44:60:94:44:F0:6C:50
+SHA-256: 97:96:91:4A:1A:DF:DB:40:5C:F8:0B:E3:CB:51:2D:D9:0D:14:54:A2:DC:59:1F:4D:1B:53:31:C6:D2:81:48:BE
+Valid until: sábado, 3 de julio de 2055
+----------
+Variant: rustoreDebugAndroidTest
+Config: debug
+Store: C:\Users\05cur\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 6A:52:89:D5:0C:85:21:E9:4C:27:50:1A:EB:9E:FE:FD
+SHA1: A5:63:B8:7C:45:B0:9B:E6:3A:EC:FC:C0:D3:44:60:94:44:F0:6C:50
+SHA-256: 97:96:91:4A:1A:DF:DB:40:5C:F8:0B:E3:CB:51:2D:D9:0D:14:54:A2:DC:59:1F:4D:1B:53:31:C6:D2:81:48:BE
+Valid until: sábado, 3 de julio de 2055
+----------
+
+[Incubating] Problems report is available at: file:///C:/Users/05cur/Desktop/Cesar%20Workana/Messages-main/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2m 19s
+1 actionable task: 1 executed

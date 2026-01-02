@@ -196,7 +196,7 @@
                 android:layout_height="16dp"
                 android:gravity="center_vertical"
                 android:alpha="0.6"
-                android:src="@drawable/ic_paper_plane_vector"
+                android:src="@drawable/ic_send_vector"
                 android:contentDescription="@null"
                 android:visibility="gone"
                 app:layout_constraintTop_toTopOf="@+id/conversationAddress"

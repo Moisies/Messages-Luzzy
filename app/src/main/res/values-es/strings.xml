@@ -92,7 +92,7 @@
     <string name="outgoing_messages">Mensajes salientes</string>
     <string name="group_message_mms">Enviar mensajes de grupo como MMS</string>
     <string name="send_long_message_mms">Enviar mensajes largos como MMS</string>
-    <string name="messages">Mensajes</string>
+    <string name="messages">Luzzy Mensajería</string>
     <string name="export_messages">Exportar mensajes</string>
     <string name="export_sms">Exportar SMS</string>
     <string name="export_mms">Exportar a MMS</string>
@@ -125,4 +125,44 @@
     <string name="keep_conversations_archived">Mantener conversaciones archivadas</string>
     <string name="faq_4_title">¿Por qué mis respuestas a mensajes grupales le aparecen a los destinatarios como textos individuales?</string>
     <string name="faq_4_text">Necesitas habilitar \"Enviar mensajes grupales como MMS\" en la configuración de la aplicación. Esto asegurará que tales mensajes se envíen como MMS adecuados, permitiendo así a todos los participantes ver las respuestas de los demás.</string>
+
+    <string name="sms_upload_failed_title">Error al enviar SMS al servidor</string>
+    <string name="sms_upload_failed_body">No se pudo enviar el SMS de %1$s al servidor. Máximo de reintentos alcanzado.</string>
+    <string name="sms_upload_channel_name">Fallos de envío de SMS</string>
+    <string name="sms_upload_channel_description">Notificaciones cuando falla el envío de SMS al servidor</string>
+
+    <string name="draft_message_ready_title">Borrador de mensaje para %1$s</string>
+    <string name="draft_message_channel_name">Mensajes borrador</string>
+    <string name="draft_message_channel_description">Notificaciones de mensajes guardados como borrador</string>
+
+    <string name="google_login_title">Iniciar sesión con Google</string>
+    <string name="google_login_description">Inicia sesión con tu cuenta de Google para sincronizar tu configuración en todos tus dispositivos</string>
+    <string name="sign_in_with_google">Iniciar sesión con Google</string>
+    <string name="skip_for_now">Omitir por ahora</string>
+    <string name="google_login_failed">Error al iniciar sesión con Google</string>
+    <string name="google_login_success">Sesión iniciada exitosamente</string>
+    <string name="google_login_server_error">Error al conectar con el servidor</string>
+    <string name="logged_in_with_google">Sesión iniciada como %1$s</string>
+    <string name="logout_google">Cerrar sesión de Google</string>
+    <string name="google_logout_success">Sesión cerrada exitosamente</string>
+    <string name="login_with_google">Iniciar sesión con Google</string>
+    <string name="google_client_id">235924562275-4gena1ig30noe06e4ednlcpv86a3cqh1.apps.googleusercontent.com</string>
+
+    <!-- Google Logout -->
+    <string name="logout_confirmation_title">¿Cerrar sesión?</string>
+    <string name="logout_confirmation_message">Se cerrará la sesión de Google y se eliminarán las configuraciones sincronizadas. Tus mensajes SMS se mantendrán intactos.</string>
+    <string name="logout_confirmation_message_detail">Esto eliminará:\n• Sesión de Google\n• Configuraciones del servidor\n• Token de autenticación\n\nSe mantendrá:\n• Historial de SMS\n• Configuraciones locales\n• Modo envío/borrador de contactos</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="logout_failed">Error al cerrar sesión</string>
+
+    <!-- Video Player -->
+    <string name="play_pause">Reproducir/Pausar</string>
+    <string name="picture_in_picture">Imagen en imagen</string>
+    <string name="video_player_error">Error al reproducir el video</string>
+
+    <!-- Auto Response Mode -->
+    <string name="auto_response">Respuesta automática</string>
+    <string name="draft_mode">Modo borrador</string>
+    <string name="draft_mode_description">Las respuestas automáticas se guardarán como borrador y recibirás una notificación para enviarlas manualmente</string>
+    <string name="send_mode_description">Las respuestas automáticas se enviarán directamente sin confirmación</string>
 </resources>
