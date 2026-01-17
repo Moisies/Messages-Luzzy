@@ -15,13 +15,34 @@ class SmsSender(private val context: Context) {
 
     companion object {
         private const val TAG = "SmsSender"
+        private val recentlySent = mutableMapOf<String, Long>()
+        private const val SEND_COOLDOWN_MS = 5000L
     }
 
     fun sendSms(recipient: String, message: String): Boolean {
+        Log.d(TAG, "📤 Intentando enviar SMS a: $recipient")
+
+        val smsHash = "$recipient:$message"
+        val currentTime = System.currentTimeMillis()
+
+        synchronized(recentlySent) {
+            val lastSentTime = recentlySent[smsHash]
+            if (lastSentTime != null && (currentTime - lastSentTime) < SEND_COOLDOWN_MS) {
+                val timeDiff = currentTime - lastSentTime
+                Log.w(TAG, "🚫 SMS DUPLICADO bloqueado (enviado hace ${timeDiff}ms) - $recipient")
+                return true
+            }
+            recentlySent[smsHash] = currentTime
+
+            recentlySent.entries.removeIf { (currentTime - it.value) > SEND_COOLDOWN_MS }
+        }
+
         if (!hasPermissions()) {
-            Log.e(TAG, "No hay permisos para enviar SMS")
+            Log.e(TAG, "✗ FALLO: No hay permiso SEND_SMS")
             return false
         }
+
+        Log.d(TAG, "✓ Permiso SEND_SMS confirmado")
 
         return try {
             val smsManager = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {

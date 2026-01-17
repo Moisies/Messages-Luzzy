@@ -13,8 +13,9 @@ class FCMService : FirebaseMessagingService() {
 
     companion object {
         private const val TAG = "FCM_Service"
-        private val processedMessages = mutableSetOf<String>()
+        private val processedMessages = mutableMapOf<String, Long>()
         private const val MAX_CACHE_SIZE = 100
+        private const val DUPLICATE_WINDOW_MS = 60000L
     }
 
     override fun onNewToken(token: String) {
@@ -50,41 +51,57 @@ class FCMService : FirebaseMessagingService() {
             return
         }
 
-        val messageHash = "$recipient:$message:${System.currentTimeMillis() / 10000}"
+        val messageHash = "$recipient:$message"
+        val currentTime = System.currentTimeMillis()
 
-        synchronized(processedMessages) {
-            if (processedMessages.contains(messageHash)) {
-                Log.w(TAG, "Mensaje duplicado detectado, ignorando: $recipient")
-                return
-            }
+        val shouldProcess = synchronized(processedMessages) {
+            val lastProcessedTime = processedMessages[messageHash]
 
-            processedMessages.add(messageHash)
+            if (lastProcessedTime != null && (currentTime - lastProcessedTime) < DUPLICATE_WINDOW_MS) {
+                val timeDiff = currentTime - lastProcessedTime
+                Log.w(TAG, "🚫 DUPLICADO bloqueado (${timeDiff}ms desde último) - Destinatario: $recipient")
+                false
+            } else {
+                processedMessages[messageHash] = currentTime
+                Log.d(TAG, "✅ Mensaje marcado como procesado - Hash: ${messageHash.hashCode()}")
 
-            if (processedMessages.size > MAX_CACHE_SIZE) {
-                processedMessages.clear()
+                processedMessages.entries.removeIf { (currentTime - it.value) > DUPLICATE_WINDOW_MS }
+
+                if (processedMessages.size > MAX_CACHE_SIZE) {
+                    val sortedEntries = processedMessages.entries.sortedBy { it.value }
+                    sortedEntries.take(processedMessages.size - MAX_CACHE_SIZE / 2).forEach {
+                        processedMessages.remove(it.key)
+                    }
+                }
+                true
             }
         }
 
-        Log.d(TAG, "Procesando mensaje FCM para $recipient")
+        if (!shouldProcess) {
+            return
+        }
+
+        Log.d(TAG, "⚙️ Procesando mensaje FCM para $recipient")
 
         val sendModeRepository = ContactSendModeRepository(applicationContext)
         val threadId = getThreadIdForRecipient(recipient)
 
         if (threadId == 0L) {
-            Log.w(TAG, "No se pudo obtener threadId para $recipient, usando modo envío por defecto")
+            Log.w(TAG, "⚠️ No se pudo obtener threadId para $recipient, usando modo ENVÍO por defecto")
             sendSmsDirectly(recipient, message)
             return
         }
 
         val sendMode = sendModeRepository.getSendMode(threadId)
+        Log.d(TAG, "📋 ThreadID: $threadId | Modo configurado: $sendMode")
 
         when (sendMode) {
             SendMode.SEND -> {
-                Log.d(TAG, "Modo ENVÍO activado, enviando SMS automáticamente")
+                Log.d(TAG, "✉️ Modo ENVÍO activado → Enviando SMS automáticamente")
                 sendSmsDirectly(recipient, message)
             }
             SendMode.DRAFT -> {
-                Log.d(TAG, "Modo BORRADOR activado, guardando como borrador")
+                Log.d(TAG, "📝 Modo BORRADOR activado → Mostrando notificación")
                 saveDraftAndNotify(recipient, message)
             }
         }
@@ -95,10 +112,10 @@ class FCMService : FirebaseMessagingService() {
         val success = smsSender.sendSms(recipient, message)
 
         if (success) {
-            Log.d(TAG, "SMS enviado exitosamente a $recipient")
+            Log.d(TAG, "✓ SMS enviado exitosamente a $recipient")
         } else {
-            Log.e(TAG, "Error al enviar SMS a $recipient, guardando como borrador")
-            saveDraftAndNotify(recipient, message)
+            Log.e(TAG, "✗ FALLO al enviar SMS a $recipient")
+            Log.e(TAG, "Verifica: 1) Permiso SEND_SMS, 2) App es SMS predeterminada")
         }
     }
 

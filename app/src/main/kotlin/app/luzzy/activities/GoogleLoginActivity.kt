@@ -82,7 +82,19 @@ class GoogleLoginActivity : SimpleActivity() {
 
             sendToServer(account)
         } catch (e: ApiException) {
-            Log.e(TAG, "Error en inicio de sesión con Google", e)
+            Log.e(TAG, "❌ Error ApiException Code: ${e.statusCode}", e)
+            Log.e(TAG, "❌ Error Message: ${e.message}")
+            Log.e(TAG, "❌ Error Status: ${e.status}")
+
+            val errorMessage = when (e.statusCode) {
+                10 -> "Developer error - SHA-1 o Client ID inválido"
+                12500 -> "Sign in failed - Servicio de Google Play no disponible"
+                12501 -> "Sign in cancelled - Usuario canceló"
+                7 -> "Network error - Sin conexión a Internet"
+                else -> "Error desconocido código ${e.statusCode}"
+            }
+
+            Log.e(TAG, "Diagnóstico: $errorMessage")
             setLoading(false)
             toast(R.string.google_login_failed)
         }

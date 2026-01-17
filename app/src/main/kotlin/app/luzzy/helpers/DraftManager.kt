@@ -12,7 +12,8 @@ import app.luzzy.R
 import app.luzzy.activities.ThreadActivity
 import com.goodwy.commons.helpers.ensureBackgroundThread
 import app.luzzy.extensions.getThreadId
-import app.luzzy.extensions.saveSmsDraft
+import app.luzzy.helpers.THREAD_ID
+import app.luzzy.helpers.THREAD_TEXT
 
 class DraftManager(private val context: Context) {
 
@@ -32,13 +33,11 @@ class DraftManager(private val context: Context) {
                     return@ensureBackgroundThread
                 }
 
-                context.saveSmsDraft(message, threadId)
-
                 showDraftNotification(recipient, message, threadId)
 
-                Log.d(TAG, "Borrador guardado y notificación mostrada para $recipient")
+                Log.d(TAG, "Notificación de borrador mostrada para $recipient")
             } catch (e: Exception) {
-                Log.e(TAG, "Error al guardar borrador", e)
+                Log.e(TAG, "Error al mostrar notificación de borrador", e)
             }
         }
     }
@@ -47,7 +46,8 @@ class DraftManager(private val context: Context) {
         createNotificationChannel()
 
         val intent = Intent(context, ThreadActivity::class.java).apply {
-            putExtra("threadId", threadId)
+            putExtra(THREAD_ID, threadId)
+            putExtra(THREAD_TEXT, message)
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
         }
 
@@ -76,6 +76,16 @@ class DraftManager(private val context: Context) {
 
         val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(NOTIFICATION_ID_BASE + threadId.toInt(), notification)
+    }
+
+    fun cancelDraftNotification(threadId: Long) {
+        try {
+            val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.cancel(NOTIFICATION_ID_BASE + threadId.toInt())
+            Log.d(TAG, "Notificación de borrador cancelada para threadId: $threadId")
+        } catch (e: Exception) {
+            Log.e(TAG, "Error al cancelar notificación", e)
+        }
     }
 
     private fun createNotificationChannel() {

@@ -292,6 +292,7 @@ class ThreadAdapter(
     private fun askConfirmDelete(message: Message? = null) {
         val itemsCnt = if (message != null) 1 else selectedKeys.size
 
+        // not sure how we can get UnknownFormatConversionException here, so show the error and hope that someone reports it
         val items = try {
             resources.getQuantityString(R.plurals.delete_messages, itemsCnt, itemsCnt)
         } catch (e: Exception) {
@@ -320,6 +321,7 @@ class ThreadAdapter(
     private fun askConfirmRestore() {
         val itemsCnt = selectedKeys.size
 
+        // not sure how we can get UnknownFormatConversionException here, so show the error and hope that someone reports it
         val items = try {
             resources.getQuantityString(R.plurals.delete_messages, itemsCnt, itemsCnt)
         } catch (e: Exception) {
@@ -395,6 +397,7 @@ class ThreadAdapter(
         val text = url.toUri().schemeSpecificPart
         val (title, icon) = getActionTitleAndIcon(url)
 
+        // Use only 24dp icons
         popupMenu.menu.add(1, 0, 0, text).setIcon(R.drawable.ic_empty)
         popupMenu.menu.add(1, 1, 1, title).setIcon(icon)
         if (title == com.goodwy.commons.R.string.call) popupMenu.menu.add(1, 2, 2, com.goodwy.strings.R.string.message).setIcon(R.drawable.ic_comment)
@@ -425,7 +428,7 @@ class ThreadAdapter(
             popupMenu.setForceShowIcon(true)
         }
         popupMenu.show()
-
+        // icon coloring
         popupMenu.menu.apply {
             for (index in 0 until this.size) {
                 val item = this[index]
@@ -594,7 +597,7 @@ class ThreadAdapter(
             popupMenu.setForceShowIcon(true)
         }
         popupMenu.show()
-
+        // icon coloring
         popupMenu.menu.apply {
             for (index in 0 until this.size) {
                 val item = this[index]
@@ -671,6 +674,17 @@ class ThreadAdapter(
                 applyTo(threadMessageHolder)
             }
 
+//            threadMessageSenderPhoto.beVisible()
+//            threadMessageSenderPhoto.setOnClickListener {
+//                val contact = message.getSender()!!
+//                activity.getContactFromAddress(contact.phoneNumbers.first().normalizedNumber) {
+//                    if (it != null) {
+//                        activity.startContactDetailsIntent(it)
+//                    }
+//                }
+//            }
+
+
             val letterBackgroundColors = activity.getLetterBackgroundColors()
             val primaryOrSenderColor =
                 if (activity.config.bubbleInContactColor) letterBackgroundColors[abs(message.senderName.hashCode()) % letterBackgroundColors.size].toInt()
@@ -722,6 +736,25 @@ class ThreadAdapter(
                 }
             }
 
+//            if (!activity.isFinishing && !activity.isDestroyed) {
+//                SimpleContactsHelper(activity).loadContactImage(message.senderPhotoUri, threadMessageSenderPhoto, message.senderName)
+//            }
+//            if (!activity.isFinishing && !activity.isDestroyed) {
+//                val contactLetterIcon = SimpleContactsHelper(activity).getContactLetterIcon(message.senderName)
+//                val placeholder = contactLetterIcon.toDrawable(activity.resources)
+
+//                val options = RequestOptions()
+//                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+//                    .error(placeholder)
+//                    .centerCrop()
+//
+//                Glide.with(activity)
+//                    .load(message.senderPhotoUri)
+//                    .placeholder(placeholder)
+//                    .apply(options)
+//                    .apply(RequestOptions.circleCropTransform())
+//                    .into(threadMessageSenderPhoto)
+//            }
         }
     }
 
@@ -776,7 +809,7 @@ class ThreadAdapter(
                     val scheduledDrawable = AppCompatResources.getDrawable(activity, com.goodwy.commons.R.drawable.ic_clock_vector)?.apply {
                         applyColorFilter(contrastColor)
                         val size = lineHeight
-
+                        //val paddingIconBottom = context.resources.getDimensionPixelSize(com.goodwy.commons.R.dimen.smaller_margin)
                         setBounds(0, 0, size, size)
                     }
 
