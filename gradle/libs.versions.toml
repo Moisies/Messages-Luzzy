@@ -20,7 +20,7 @@ room = "2.8.3"
 mmslib = "1.0.0"
 indicatorFastScroll = "fe6ddbc316"
 #Goodwy
-right-commons = "c2bf2db476"
+right-commons = "4e4e328b"
 behavioRule = "1.0.1"
 rxAnimation = "2.1.1"
 rxJava3 = "3.1.5"
@@ -58,9 +58,9 @@ ez-vcard = { module = "com.googlecode.ez-vcard:ez-vcard", version.ref = "ez-vcar
 #Kotlin
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 #Goodwy
-goodwy-commons-gplay = { module = "com.github.goodwy.goodwy-commons:commons-gplay", version.ref = "right-commons" }
-goodwy-commons-foss = { module = "com.github.goodwy.goodwy-commons:commons-foss", version.ref = "right-commons" }
-goodwy-commons-rustore = { module = "com.github.goodwy.goodwy-commons:commons-rustore", version.ref = "right-commons" }
+goodwy-commons-gplay = { module = "com.github.Moisies.goodwy-commons:commons-gplay", version.ref = "right-commons" }
+goodwy-commons-foss = { module = "com.github.Moisies.goodwy-commons:commons-foss", version.ref = "right-commons" }
+goodwy-commons-rustore = { module = "com.github.Moisies.goodwy-commons:commons-rustore", version.ref = "right-commons" }
 behavio-rule = { module = "com.github.Liverm0r:BehavioRule", version.ref = "behavioRule" }
 rx-animation = { module = "com.mikhaellopez:rxanimation", version.ref = "rxAnimation" }
 rx-java = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxJava3" }
