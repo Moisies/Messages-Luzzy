@@ -171,24 +171,5 @@ const val SWIPE_VIBRATION = "swipe_vibration"
 const val SWIPE_RIPPLE = "swipe_ripple"
 
 fun whatsNewList(): ArrayList<Release> {
-    return arrayListOf<Release>().apply {
-        add(Release(420, R.string.release_420))
-        add(Release(421, R.string.release_421))
-        add(Release(500, R.string.release_500))
-        add(Release(510, R.string.release_510))
-        add(Release(511, R.string.release_511))
-        add(Release(513, R.string.release_513))
-        add(Release(515, R.string.release_515))
-        add(Release(520, R.string.release_520))
-        add(Release(521, R.string.release_521))
-        add(Release(610, R.string.release_610))
-        add(Release(620, R.string.release_620))
-        add(Release(630, R.string.release_630))
-        add(Release(631, R.string.release_631))
-        add(Release(632, R.string.release_632))
-        add(Release(633, R.string.release_633))
-        add(Release(700, R.string.release_700))
-        add(Release(701, R.string.release_701))
-        add(Release(800, R.string.release_800))
-    }
+    return arrayListOf()
 }
